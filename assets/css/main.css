@@ -1,0 +1,526 @@
+:root {
+  /* Основні кольори MOGO */
+  --main-pink: #f38181;
+  --main-teal: #95e1d3;
+  --main-yellow: #fce38a;
+  /* Текстові та фонові кольори */
+  --dark-text: #333;
+  --light-text: #999;
+  --white: #fff;
+  --gray-light: #e5e5e5;
+  --gray-bg: #f8f8f8;
+  /* Градієнти */
+  --gradient-overlay: linear-gradient(to bottom, var(--main-pink), var(--main-yellow));
+  --splash-screen-bg: linear-gradient(to bottom, var(--main-pink) 0%, var(--main-yellow) 100%);
+  /* Скролбар */
+  --scrollbar-thumb-color: #43a5ac;
+  --scrollbar-thumb-hover: #ffffff;
+}
+/* ========================================
+   2. RESET & BASE
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--dark-text);
+  overflow-x: hidden;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+hr {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 40px 0;
+  border: 0;
+  background-color: var(--gray-light);
+}
+/* ========================================
+   3. SCROLLBAR
+   ======================================== */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+/* ========================================
+   4. TEXT SELECTION
+   ======================================== */
+::selection {
+  background: var(--main-yellow);
+  color: var(--dark-text);
+}
+::-moz-selection {
+  background: var(--main-yellow);
+  color: var(--dark-text);
+}
+/* ========================================
+   5. CURSOR (optional - можна додати SVG)
+   ======================================== */
+body {
+  cursor: default;
+}
+a,
+button,
+.btn,
+.nav__link,
+.card__inner,
+.works__item,
+.scroll-btn,
+.accordion__header,
+.burger-btn {
+  cursor: pointer;
+}
+/* ========================================
+   6. CONTAINER & MAIN
+   ======================================== */
+.container {
+  width: 70%;
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.main {
+  overflow: hidden;
+}
+/* ========================================
+   7. SECTION
+   ======================================== */
+.section {
+  padding: 40px 0;
+}
+.section--gray {
+  background-color: var(--gray-bg);
+}
+.section--map {
+  background: #e6e6e6 url("../images/clients-bg.jpg") center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  padding-top: 0;
+  min-height: 400px;
+}
+.section__header {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.section__suptitle {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 24px;
+  color: var(--dark-text);
+}
+.section__title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--dark-text);
+  text-transform: uppercase;
+}
+.section__title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 30px auto;
+  background-color: var(--main-pink);
+}
+.section__text {
+  font-size: 15px;
+  color: var(--light-text);
+}
+.section-line-divider {
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-teal);
+  margin-top: -10px;
+  margin-bottom: -20px;
+}
+/* ========================================
+   8. SPLASH SCREEN
+   ======================================== */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--splash-screen-bg);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  -webkit-animation: splashFadeOut 0.5s ease-in-out 4s forwards;
+  animation: splashFadeOut 0.5s ease-in-out 4s forwards;
+}
+.logo-container {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.mogo-logo-text {
+  font-size: 4em;
+  color: var(--white);
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin: 0;
+  -webkit-animation: logoAppear 1s ease-in-out;
+  animation: logoAppear 1s ease-in-out;
+}
+.loading-message {
+  font-size: 1.2em;
+  color: var(--white);
+  margin-top: 10px;
+  opacity: 0.8;
+  -webkit-animation: blink 1.5s infinite;
+  animation: blink 1.5s infinite;
+}
+/* Block scroll during splash screen */
+body {
+  -webkit-animation: blockScroll 4.5s;
+  animation: blockScroll 4.5s;
+}
+@-webkit-keyframes splashFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+@keyframes splashFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+@-webkit-keyframes blockScroll {
+  0%,
+  99% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: visible;
+  }
+}
+@keyframes blockScroll {
+  0%,
+  99% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: visible;
+  }
+}
+@-webkit-keyframes logoAppear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes logoAppear {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes blink {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+/* ========================================
+   9. HEADER
+   ======================================== */
+.header {
+  width: 100%;
+  padding-top: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.header__logo {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--white);
+}
+/* ========================================
+   10. NAVIGATION
+   ======================================== */
+.nav {
+  font-size: 14px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav__link {
+  display: inline-block;
+  position: relative;
+  color: var(--white);
+  text-decoration: none;
+  -webkit-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+.nav__link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--main-yellow);
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  margin-top: 5px;
+  -webkit-transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear;
+}
+.nav__link:hover {
+  color: var(--main-yellow);
+}
+/* ВИПРАВЛЕНО: тепер лінія з'являється ТІЛЬКИ при hover */
+.nav__link:hover::after {
+  opacity: 1;
+}
+
+/* ========================================
+   11. BURGER MENU
+   ======================================== */
+.burger-toggle {
+  display: none;
+}
+.burger-btn {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 30px;
+  height: 24px;
+  z-index: 1002;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.burger-btn__icon {
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  background: var(--white);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+}
+.burger-btn__icon::before,
+.burger-btn__icon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  background: var(--white);
+  left: 0;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+}
+.burger-btn__icon::before {
+  top: -8px;
+}
+.burger-btn__icon::after {
+  bottom: -8px;
+}
+/* Анімація іконки при відкритті */
+.burger-toggle:checked + .header__overlay {
+  display: block;
+  opacity: 1;
+}
+.burger-toggle:checked ~ .header__inner .burger-btn__icon {
+  background: transparent;
+}
+.burger-toggle:checked ~ .header__inner .burger-btn__icon::before {
+  -webkit-transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
+}
+.burger-toggle:checked ~ .header__inner .burger-btn__icon::after {
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
+}
+.burger-toggle:checked ~ .header__inner .nav {
+  right: 0;
+}
+/* Overlay для закриття меню */
+.header__overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+/* ========================================
+   МЕДІА-ЗАПИТ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ
+   ======================================== */
+@media (max-width: 770px) {
+  .header__inner {
+    padding-right: 60px;
+  }
+  .burger-btn {
+    display: block;
+  }
+  /* Мобільне меню */
+  .nav {
+    position: absolute;
+    top: 10;
+    left: 40;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.438);
+    padding: 80px 30px 30px;
+    -webkit-transition: right 0.4s ease;
+    transition: right 0.4s ease;
+    overflow-y: auto;
+    z-index: 1001;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav__link {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    margin: 0;
+    font-size: 16px;
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-transition: padding-left 0.3s ease, color 0.2s ease;
+    transition: padding-left 0.3s ease, color 0.2s ease;
+  }
+  .nav__link:hover {
+    padding-left: 10px;
+    color: var(--main-yellow);
+  }
+  .nav__link::after {
+    display: none;
+  }
+  .nav__link.active {
+    color: var(--main-yellow);
+    padding-left: 10px;
+    border-left: 3px solid var(--main-yellow);
+  }
+  /* Іконки в меню */
+  .nav__link i {
+    font-size: 18px;
+  }
+}
+/* ========================================
+   12. INTRO SECTION
+   ======================================== */
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  background: url("../images/intro.jpg") center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.intro__inner {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+.intro__suptitle {
+  margin-bottom: 20px;
+  font-family: 'Kaushan Script', cursive;
+  font-size: xxx-large;
+  color: var(--white);
+}
+.intro__title {
+  color: var(--white);
+  font-size: 450%;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.intro__title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 60px auto;
+  background-color: var(--white);
+}

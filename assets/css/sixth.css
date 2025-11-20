@@ -1,0 +1,361 @@
+/* ========================================
+   28. MEDIA QUERIES
+   ======================================== */
+/* Tablets and Medium Screens */
+@media (max-width: 990px) {
+  .works {
+    flex-wrap: wrap;
+  }
+  .works__col {
+    flex: none;
+    width: 50%;
+  }
+  .container {
+    width: 85%;
+  }
+  .section__header {
+    margin: 0 auto 40px;
+  }
+  .nav {
+    gap: 10px;
+  }
+  .card {
+    margin-top: 50px;
+    margin: 50px -5px 0;
+  }
+  .card__item {
+    width: 50%;
+    padding: 0 5px;
+  }
+  .services__item {
+    width: 50%;
+  }
+  .stat__item {
+    flex: 1 1 50%;
+  }
+}
+@media (min-width: 771px) and (max-width: 990px) {
+  .works__col {
+    width: 33.33333%;
+  }
+}
+/* Tablets */
+@media (max-width: 770px) {
+  /* Header & Navigation */
+  .header__inner {
+    padding-right: 60px;
+  }
+  .burger-btn {
+    display: block;
+  }
+  .nav {
+    display: flex;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    -webkit-transition: max-height 0.3s ease, opacity 0.3s ease;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    gap: 0;
+  }
+  .burger-toggle:checked ~ .header__inner .nav {
+    max-height: 500px;
+    opacity: 1;
+  }
+  .nav__link {
+    display: block;
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nav__link::after {
+    display: none;
+  }
+  /* Intro */
+  .intro__suptitle {
+    font-size: xx-large;
+  }
+  .intro__title {
+    font-size: 300%;
+  }
+  /* Cards */
+  .card__item {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  /* Services */
+  .services__item {
+    width: 100%;
+  }
+  /* Statistics */
+  .stat__item {
+    padding: 50px 20px;
+  }
+  .stat__count {
+    font-size: 52px;
+  }
+  /* Reviews */
+  .reviews {
+    padding: 0 20px;
+  }
+  .reviews__item {
+    padding-left: 0;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+  }
+  .reviews__photo {
+    position: static;
+    margin: 0 auto 20px;
+  }
+  .reviews__author::before {
+    display: block;
+    margin: 10px auto;
+  }
+  /* We Do */
+  .wedo__item {
+    width: 100%;
+  }
+  /* Clients */
+  .clients__item {
+    width: 100%;
+    padding: 0 15px;
+    padding-left: 140px;
+    margin-bottom: 40px;
+  }
+}
+/* Mobile */
+@media (max-width: 575px) {
+  .works__col {
+    width: 100%;
+  }
+  .clients__photo {
+    position: static;
+    margin: 0 auto 15px;
+  }
+  .clients__item {
+    padding-left: 0;
+    text-align: center;
+  }
+  .clients__text::before {
+    margin: 15px auto;
+  }
+  .container {
+    width: 95%;
+    padding: 0 10px;
+  }
+  .intro {
+    min-height: 500px;
+  }
+  .intro__suptitle {
+    font-size: x-large;
+    margin-bottom: 10px;
+  }
+  .intro__title {
+    font-size: 200%;
+    margin-bottom: 30px;
+  }
+  .intro__title::after {
+    margin: 30px auto;
+  }
+  .header__logo {
+    font-size: 24px;
+  }
+  .btn {
+    padding: 6px 20px;
+    font-size: 12px;
+    border-width: 2px;
+  }
+  .section {
+    padding: 30px 0;
+  }
+  .section__suptitle {
+    font-size: 20px;
+  }
+  .section__title {
+    font-size: 24px;
+  }
+  .section__title::after {
+    margin: 20px auto;
+  }
+  .services__item {
+    padding: 0 15px 30px 60px;
+    margin-bottom: 20px;
+  }
+  .services__icon {
+    left: 0;
+  }
+  .stat__item {
+    width: 50%;
+    padding: 30px 10px;
+  }
+  .stat__count {
+    font-size: 42px;
+  }
+  .stat__text {
+    font-size: 12px;
+  }
+  .slider__inner {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .slider__item {
+    width: 45%;
+    padding: 10px 0;
+  }
+  .slider__num {
+    font-size: 18px;
+  }
+  .slider__text {
+    font-size: 12px;
+  }
+  .accordion__header {
+    padding: 10px 15px 10px 50px;
+    font-size: 12px;
+  }
+  .accordion__icon {
+    left: 10px;
+  }
+  .map {
+    min-height: 300px;
+  }
+  .map__title {
+    font-size: 18px;
+  }
+  .scroll-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  #scroll-up-btn {
+    bottom: 65px;
+  }
+  #scroll-down-btn {
+    bottom: 15px;
+  }
+  .mogo-logo-text {
+    font-size: 3em;
+  }
+  .loading-message {
+    font-size: 1em;
+  }
+}
+/* Extra Small (iPhone SE) */
+@media (max-width: 480px) {
+  .intro__title {
+    font-size: 150%;
+  }
+  .intro__suptitle {
+    font-size: large;
+  }
+  .section__title {
+    font-size: 20px;
+  }
+  .slider__item {
+    width: 50%;
+  }
+  .stat__item {
+    width: 50%;
+    flex: 1 1 50%;
+  }
+  .mogo-logo-text {
+    font-size: 2.5em;
+  }
+}
+/* Very Small Screens */
+@media (max-width: 375px) {
+  .slider__item {
+    width: 100%;
+    text-align: center;
+    border-left: none;
+  }
+  .slider__item.active::before {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .stat__item {
+    width: 100%;
+    flex: 1 1 100%;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #b5eae0;
+  }
+  .stat__item:last-child {
+    border-bottom: none;
+  }
+}
+/* ========================================
+   29. ADDITIONAL ANIMATIONS
+   ======================================== */
+/* Fade In Up for Cards */
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.card__item {
+  -webkit-animation: fadeInUp 0.6s ease-out backwards;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+.card__item:nth-child(1) {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.card__item:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.card__item:nth-child(3) {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+/* Section Highlight on Target */
+section:target {
+  -webkit-animation: highlightSection 1s ease-in-out;
+  animation: highlightSection 1s ease-in-out;
+}
+@-webkit-keyframes highlightSection {
+  0%,
+  100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(243, 129, 129, 0.05);
+  }
+}
+@keyframes highlightSection {
+  0%,
+  100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(243, 129, 129, 0.05);
+  }
+}

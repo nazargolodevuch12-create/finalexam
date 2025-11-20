@@ -1,0 +1,104 @@
+/* ========================================
+   24. MAP
+   ======================================== */
+.map {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  margin-top: -50px;
+}
+.map__title {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.map__title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 15px auto 0;
+  background-color: var(--main-pink);
+}
+.map__title a {
+  color: var(--main-pink);
+  text-decoration: none;
+  -webkit-transition: text-decoration 0.1s linear;
+  transition: text-decoration 0.1s linear;
+}
+.map__title a:hover {
+  text-decoration: underline;
+}
+/* ========================================
+   25. SCROLL BUTTONS
+   ======================================== */
+.scroll-btn {
+  position: fixed;
+  right: 20px;
+  background-color: var(--scrollbar-thumb-color);
+  color: var(--white);
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s, -webkit-transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+  opacity: 0.9;
+}
+.scroll-btn:hover {
+  background-color: var(--scrollbar-thumb-hover);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+#scroll-up-btn {
+  bottom: 70px;
+}
+#scroll-down-btn {
+  bottom: 20px;
+}
+/* ========================================
+   26. FOOTER
+   ======================================== */
+.footer {
+  padding: 20px 0;
+  background: var(--dark-text);
+  color: var(--white);
+  text-align: center;
+}
+.footer__text {
+  font-size: 14px;
+  margin: 0;
+}
+/* ========================================
+   27. ANCHORS
+   ======================================== */
+#top,
+#bottom {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+#top::before,
+#bottom::before {
+  content: "";
+  display: block;
+  height: 70px;
+  margin-top: -70px;
+  visibility: hidden;
+}
